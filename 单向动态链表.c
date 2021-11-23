@@ -1,4 +1,4 @@
-//单向动态链表
+//单向动态链表,并输出
 #include <stdio.h>
 #include <stdlib.h>
 #define LEN sizeof(struct Student)
@@ -22,17 +22,28 @@ struct Student *creat(void)
         if (n==1) head=p1;
         else p2->next=p1;
         p2=p1;
-        p1=(struct Student *) malloc(LEN);
         scanf("%ld %f",&p1->num,&p1->score);
     }
     p2->next=NULL;
     return head; 
 }
+void print(struct Student *head)
+{
+    struct Student *p;
+    printf("\nNow,There %d records are: \n",n);
+    p=head;
+    if (head!=NULL)
+        do
+        {
+            printf("%ld %5.1f\n",p->num,p->score);
+            p=p->next;
+        } while (p!=NULL);
+}
 int main()
 {
-    struct Student *pt;
-    pt=creat();
-    printf("\nnum: %ld\nscore: %5.1f\n",pt->num,pt->score);
+    struct Student *head;
+    head=creat();
+    print(head);
     return 0;
 }
 
