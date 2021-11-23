@@ -22,6 +22,7 @@ struct Student *creat(void)
         if (n==1) head=p1;
         else p2->next=p1;
         p2=p1;
+        p1=(struct Student *) malloc(LEN);
         scanf("%ld %f",&p1->num,&p1->score);
     }
     p2->next=NULL;
